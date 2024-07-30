@@ -85,6 +85,20 @@ const contextMsg = createContext();
 // useEffect获取数据并渲染
 const URL = 'http://geek.itheima.net/v1_0/channels';
 
+// useEffect清除副作用
+// function Son() {
+//   useEffect(() => {
+//     const timer = setInterval(() => {
+//       console.log('定时器执行中...')
+//     }, 1000);
+
+//     return () => {
+//       clearInterval(timer);
+//     }
+//   }, []);
+//   return <div>This is useEffect清除副作用.</div>
+// }
+
 function App() {
   // 事件绑定 回调函数
   const handleClick = (name) => {
@@ -167,6 +181,9 @@ function App() {
     getList();
   }, []);
 
+  // useEffect清除副作用
+  // const [bolValue, setBolValue] = useState(true);
+
   return (
     <div className="App">
       {<h1>This is a React exercise.</h1>}
@@ -236,6 +253,10 @@ function App() {
           ))}
         </ul>
       </div>
+
+      {/* useEffect清除副作用 */}
+      {/* {bolValue && <Son />}
+      <button onClick={() => setBolValue(false)}>卸载Son组件</button> */}
     </div>
   );
 }
